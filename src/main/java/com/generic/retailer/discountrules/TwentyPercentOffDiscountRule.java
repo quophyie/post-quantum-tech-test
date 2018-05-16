@@ -29,7 +29,7 @@ public class TwentyPercentOffDiscountRule implements DiscountRule {
                     return discountedAmount.setScale(2, BigDecimal.ROUND_CEILING);
                 })
                 .reduce((prev, current) -> prev.add(current))
-                .orElse(new BigDecimal(0));
+                .orElse(new BigDecimal(0).setScale(2, BigDecimal.ROUND_CEILING));
 
     }
 }

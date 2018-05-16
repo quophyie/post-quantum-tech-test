@@ -26,7 +26,7 @@ public class DiscountBrokerTests {
     private DiscountBroker discountBroker;
     private DiscountRule twentyPerecentDiscountRule;
     private final LocalDate thursday = LocalDate.of(2018, 05, 17);
-    private final TrolleyItemsFilter trolleyItemsFilter = new DayOfWeekTrolleyItemsFilter(DayOfWeek.from(LocalDate.now()), thursday);
+    private final TrolleyItemsFilter trolleyItemsFilter = new DayOfWeekTrolleyItemsFilter(DayOfWeek.THURSDAY, thursday);
 
     private Map<String, TrolleyItem> trolleyItems;
     private final String DVD_SKU_1 = "DVD_SKU_1";
@@ -90,11 +90,22 @@ public class DiscountBrokerTests {
     }
 
     @Test
-    public void should_apply_discount_rule_given_that_the_predicate_evaluates_to_true(){
+    public void should_apply_20_percent_discount_rule_given_that_the_it_is_a_thursday(){
 
         final BigDecimal result = discountBroker.applyBrokerRule(trolleyItemsFilter, twentyPerecentDiscountRule, trolleyItems);
 
         assertThat(result).isEqualTo(new BigDecimal(9).setScale(2, BigDecimal.ROUND_CEILING));
+
+    }
+
+    @Test
+    public void should_not_apply_20_percent_discount_rule_given_that_the_it_is_not_a_thursday(){
+
+        final LocalDate notThursday = LocalDate.of(2018, 05, 18);
+        final TrolleyItemsFilter trolleyItemsFilter = new DayOfWeekTrolleyItemsFilter(DayOfWeek.THURSDAY, notThursday);
+        final BigDecimal result = discountBroker.applyBrokerRule(trolleyItemsFilter, twentyPerecentDiscountRule, trolleyItems);
+
+        assertThat(result).isEqualTo(new BigDecimal(0).setScale(2, BigDecimal.ROUND_CEILING));
 
     }
 
