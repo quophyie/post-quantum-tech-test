@@ -58,6 +58,9 @@ public final class Cli implements AutoCloseable {
   private final InventoryService inventoryService;
   private final InventoryRepository inventoryRepository;
   private final Trolley trolley;
+  private final Map<TrolleyItemsFilter, LinkedHashMap<String, DiscountRule>> trolleyItemsFiltersToDiscountRuleMap;
+  private final LinkedHashMap twoForDiscountRuleMap;
+  private final LinkedHashMap thursdayDiscountRuleMap;
 
   private Cli(String prompt, BufferedReader reader, BufferedWriter writer, LocalDate date) {
     this.prompt = prompt;
@@ -72,16 +75,13 @@ public final class Cli implements AutoCloseable {
 
     DiscountBroker discountBroker = new DiscountBrokerImpl();
 
+    trolleyItemsFiltersToDiscountRuleMap = new HashMap<>();
 
-    final Map<TrolleyItemsFilter, LinkedHashMap<String, DiscountRule>> trolleyItemsFiltersToDiscountRuleMap = new HashMap<>();
-    LinkedHashMap twoForDiscountRuleMap = new LinkedHashMap();
+    twoForDiscountRuleMap = new LinkedHashMap();
     twoForDiscountRuleMap.put("2 FOR 1", new TwoForOneDiscountRule());
 
-    LinkedHashMap thursdayDiscountRuleMap = new LinkedHashMap();
+    thursdayDiscountRuleMap = new LinkedHashMap();
     thursdayDiscountRuleMap.put("THURS", new TwentyPercentOffDiscountRule());
-
-    trolleyItemsFiltersToDiscountRuleMap.put(new Product2For1TrolleyItemsFilter<>(DVD.class), twoForDiscountRuleMap);
-    trolleyItemsFiltersToDiscountRuleMap.put(new DayOfWeekTrolleyItemsFilter(DayOfWeek.THURSDAY, date), thursdayDiscountRuleMap);
 
     checkoutService = new CheckoutServiceImpl(discountBroker,
             trolleyItemsFiltersToDiscountRuleMap);
@@ -114,6 +114,10 @@ public final class Cli implements AutoCloseable {
       prompt();
       line = readLine();
     }
+
+    trolleyItemsFiltersToDiscountRuleMap.put(new Product2For1TrolleyItemsFilter<>(DVD.class), twoForDiscountRuleMap);
+    trolleyItemsFiltersToDiscountRuleMap.put(new DayOfWeekTrolleyItemsFilter(DayOfWeek.THURSDAY, date), thursdayDiscountRuleMap);
+
     Receipt receipt = checkoutService.buildReciept(trolley);
     writeLine(String.format("Thank you for visiting Generic Retailer, your total is %s", receipt.getTotal()));
     writeLine(checkoutService.getReceiptAsString(receipt));

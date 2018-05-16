@@ -71,7 +71,7 @@ public class InventoryRepositoryTests {
     }
 
     @Test
-    public void should_return_an_empty_optional_given_the_product_exists_in_the_inventory(){
+    public void should_return_an_empty_optional_given_the_product_does_not_exist_in_the_inventory(){
         Optional<Product> bookInInventory = inventoryRepository.findProductByName("NOT_EXISTS");
 
         assertThat(bookInInventory).isEqualTo(Optional.empty());
