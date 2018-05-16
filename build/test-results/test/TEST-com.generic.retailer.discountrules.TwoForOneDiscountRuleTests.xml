@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.generic.retailer.discountrules.TwoForOneDiscountRuleTests" tests="2" skipped="0" failures="0" errors="0" timestamp="2018-05-17T11:12:02" hostname="Georges-MacBook-Pro.local" time="0.002">
+  <properties/>
+  <testcase name="should_not_apply_2_for_1_discount_rule_given_each_trolley_item_has_a_quantity_of_one" classname="com.generic.retailer.discountrules.TwoForOneDiscountRuleTests" time="0.001"/>
+  <testcase name="should_apply_2_for_1_discount_rule_given_trolley_items" classname="com.generic.retailer.discountrules.TwoForOneDiscountRuleTests" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

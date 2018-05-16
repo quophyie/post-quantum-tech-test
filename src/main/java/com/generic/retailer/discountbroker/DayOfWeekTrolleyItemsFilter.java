@@ -21,10 +21,12 @@ import static java.util.Objects.requireNonNull;
 public class DayOfWeekTrolleyItemsFilter implements TrolleyItemsFilter {
 
     private final DayOfWeek dayOfWeek;
+    private final LocalDate recieptDate;
 
-    public DayOfWeekTrolleyItemsFilter(DayOfWeek dayOfWeek){
+    public DayOfWeekTrolleyItemsFilter(DayOfWeek dayOfWeek, LocalDate recieptDate){
 
         this.dayOfWeek = dayOfWeek;
+        this.recieptDate = recieptDate;
     }
 
     @Override
@@ -35,7 +37,7 @@ public class DayOfWeekTrolleyItemsFilter implements TrolleyItemsFilter {
 
             Map<String, TrolleyItem> filteredTrolleyToApplyThursdayDiscountsTo = new HashMap<>();
 
-            if (trolleyItemMap != null && LocalDate.now().getDayOfWeek().equals(dayOfWeek)){
+            if (trolleyItemMap != null && recieptDate.getDayOfWeek().equals(dayOfWeek)){
                 filteredTrolleyToApplyThursdayDiscountsTo = trolleyItemMap.entrySet()
                         .stream()
                         .filter(entry -> !(entry.getValue().getLineItem() instanceof DVD))

@@ -47,7 +47,7 @@ public class CheckoutServiceTests {
     private TrolleyItem dvdTrolleyItems, cdTrolleyItems, bookTrolleyItems;
     private Map<TrolleyItemsFilter, LinkedHashMap<String, DiscountRule>> trolleyItemsFiltersToDiscountRuleMap;
 
-
+    private final LocalDate thursday = LocalDate.of(2018, 05, 17);
     @Mock
     private Trolley trolley;
 
@@ -66,7 +66,7 @@ public class CheckoutServiceTests {
         LinkedHashMap thursdayDiscountRuleMap = new LinkedHashMap();
         thursdayDiscountRuleMap.put("THURS", new TwentyPercentOffDiscountRule());
         trolleyItemsFiltersToDiscountRuleMap.put(new Product2For1TrolleyItemsFilter<>(DVD.class), twoForDiscountRuleMap);
-        trolleyItemsFiltersToDiscountRuleMap.put(new DayOfWeekTrolleyItemsFilter(DayOfWeek.from(LocalDate.now())), thursdayDiscountRuleMap);
+        trolleyItemsFiltersToDiscountRuleMap.put(new DayOfWeekTrolleyItemsFilter(DayOfWeek.from(LocalDate.now()), thursday), thursdayDiscountRuleMap);
 
         final String DVD_SKU = "DVD_SKU";
         final String CD_SKU = "CD_SKU";

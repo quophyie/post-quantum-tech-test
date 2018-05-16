@@ -25,7 +25,8 @@ public class DiscountBrokerTests {
 
     private DiscountBroker discountBroker;
     private DiscountRule twentyPerecentDiscountRule;
-    private final TrolleyItemsFilter trolleyItemsFilter = new DayOfWeekTrolleyItemsFilter(DayOfWeek.from(LocalDate.now()));
+    private final LocalDate thursday = LocalDate.of(2018, 05, 17);
+    private final TrolleyItemsFilter trolleyItemsFilter = new DayOfWeekTrolleyItemsFilter(DayOfWeek.from(LocalDate.now()), thursday);
 
     private Map<String, TrolleyItem> trolleyItems;
     private final String DVD_SKU_1 = "DVD_SKU_1";

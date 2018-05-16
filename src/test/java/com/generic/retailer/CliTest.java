@@ -86,7 +86,7 @@ public class CliTest {
     StringWriter writer = new StringWriter();
     LocalDate notThursday = LocalDate.now();
     if (notThursday.getDayOfWeek().equals(DayOfWeek.THURSDAY)) {
-      notThursday.plusDays(1);
+      notThursday = notThursday.plusDays(1);
     }
     Cli cli = Cli.create(">", reader, new BufferedWriter(writer), notThursday);
     cli.run();
@@ -112,7 +112,7 @@ public class CliTest {
     StringWriter writer = new StringWriter();
     LocalDate notThursday = LocalDate.now();
     if (notThursday.getDayOfWeek().equals(DayOfWeek.THURSDAY)) {
-      notThursday.plusDays(1);
+      notThursday = notThursday.plusDays(1);
     }
     Cli cli = Cli.create(">", reader, new BufferedWriter(writer), notThursday);
     cli.run();
@@ -137,7 +137,7 @@ public class CliTest {
     StringWriter writer = new StringWriter();
     LocalDate notThursday = LocalDate.now();
     if (notThursday.getDayOfWeek().equals(DayOfWeek.THURSDAY)) {
-      notThursday.plusDays(1);
+      notThursday = notThursday.plusDays(1);
     }
     Cli cli = Cli.create(">", reader, new BufferedWriter(writer), notThursday);
     cli.run();
@@ -167,7 +167,7 @@ public class CliTest {
     StringWriter writer = new StringWriter();
     LocalDate thursday = LocalDate.now();
     while (!thursday.getDayOfWeek().equals(DayOfWeek.THURSDAY)) {
-      thursday.plusDays(1);
+        thursday = thursday.plusDays(1);
     }
     Cli cli = Cli.create(">", reader, new BufferedWriter(writer), thursday);
     cli.run();
@@ -185,10 +185,7 @@ public class CliTest {
 
   @Test
   public void testDiscount2For1OnThursdays() throws IOException {
-    // This test seems to be only run on thursdays so to prevent all tests
-    // from hanging, we only proceed with this test if test is run on thursday
-    if (!LocalDate.now().getDayOfWeek().equals(DayOfWeek.THURSDAY))
-      return;
+
     BufferedReader reader = reader(
         "dvd",
         "dvd",
@@ -198,7 +195,7 @@ public class CliTest {
     StringWriter writer = new StringWriter();
     LocalDate thursday = LocalDate.now();
     while (!thursday.getDayOfWeek().equals(DayOfWeek.THURSDAY)) {
-     thursday.plusDays(1);
+     thursday = thursday.plusDays(1);
     }
     Cli cli = Cli.create(">", reader, new BufferedWriter(writer), thursday);
     cli.run();

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.generic.retailer.checkoutmanager.CheckoutServiceTests" tests="4" skipped="0" failures="0" errors="0" timestamp="2018-05-17T11:12:02" hostname="Georges-MacBook-Pro.local" time="0.006">
+  <properties/>
+  <testcase name="should_thrown_NullPointerException_given_null_receipt_lines" classname="com.generic.retailer.checkoutmanager.CheckoutServiceTests" time="0.001"/>
+  <testcase name="should_thrown_NullPointerException_given_null_receipt" classname="com.generic.retailer.checkoutmanager.CheckoutServiceTests" time="0.0"/>
+  <testcase name="should_build_a_reciept_given_a_trolley_with_items_in_it" classname="com.generic.retailer.checkoutmanager.CheckoutServiceTests" time="0.002"/>
+  <testcase name="should_get_the_reciept_to_print_as_a_string" classname="com.generic.retailer.checkoutmanager.CheckoutServiceTests" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

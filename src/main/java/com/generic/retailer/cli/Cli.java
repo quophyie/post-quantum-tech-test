@@ -81,7 +81,7 @@ public final class Cli implements AutoCloseable {
     thursdayDiscountRuleMap.put("THURS", new TwentyPercentOffDiscountRule());
 
     trolleyItemsFiltersToDiscountRuleMap.put(new Product2For1TrolleyItemsFilter<>(DVD.class), twoForDiscountRuleMap);
-    trolleyItemsFiltersToDiscountRuleMap.put(new DayOfWeekTrolleyItemsFilter(DayOfWeek.THURSDAY), thursdayDiscountRuleMap);
+    trolleyItemsFiltersToDiscountRuleMap.put(new DayOfWeekTrolleyItemsFilter(DayOfWeek.THURSDAY, date), thursdayDiscountRuleMap);
 
     checkoutService = new CheckoutServiceImpl(discountBroker,
             trolleyItemsFiltersToDiscountRuleMap);

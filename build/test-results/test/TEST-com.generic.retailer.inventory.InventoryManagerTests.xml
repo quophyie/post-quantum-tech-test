@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.generic.retailer.inventory.InventoryManagerTests" tests="4" skipped="0" failures="0" errors="0" timestamp="2018-05-16T06:08:26" hostname="Georges-MacBook-Pro.local" time="0.007">
+  <properties/>
+  <testcase name="should_return_null_given_a_product_that_does_not_in_inventory" classname="com.generic.retailer.inventory.InventoryManagerTests" time="0.004"/>
+  <testcase name="should_return_true_given_a_product_that_exists_in_inventory" classname="com.generic.retailer.inventory.InventoryManagerTests" time="0.001"/>
+  <testcase name="should_return_a_product_given_a_product_name_that_exists_in_inventory" classname="com.generic.retailer.inventory.InventoryManagerTests" time="0.0"/>
+  <testcase name="should_return_false_given_a_product_that_does_not_exists_in_inventory" classname="com.generic.retailer.inventory.InventoryManagerTests" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

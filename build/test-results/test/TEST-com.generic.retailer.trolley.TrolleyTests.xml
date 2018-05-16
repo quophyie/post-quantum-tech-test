@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.generic.retailer.trolley.TrolleyTests" tests="5" skipped="0" failures="0" errors="0" timestamp="2018-05-17T11:12:02" hostname="Georges-MacBook-Pro.local" time="0.046">
+  <properties/>
+  <testcase name="should_add_a_list_of_items_to_the_trolley" classname="com.generic.retailer.trolley.TrolleyTests" time="0.038"/>
+  <testcase name="should_remove_an_item_from_the_trolley_given_the_item_sku" classname="com.generic.retailer.trolley.TrolleyTests" time="0.002"/>
+  <testcase name="should_empty_the_given_trolley" classname="com.generic.retailer.trolley.TrolleyTests" time="0.0"/>
+  <testcase name="should_add_an_item_to_the_trolley" classname="com.generic.retailer.trolley.TrolleyTests" time="0.001"/>
+  <testcase name="should_throw_NulPointerException_given_null_trolley_item_on_add_item" classname="com.generic.retailer.trolley.TrolleyTests" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
